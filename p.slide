@@ -32,6 +32,8 @@ essas são algumas das funcionalidades que tem nele.
 * Segundo sistema em Go.
 Encurtador de URL *A* *menina* *dos* *meus* *Olhos*
 
+.link http://wsib.ws:3000 Encurtador
+
 Esse sistema é bem simples, simplemente encurta a url postada, e deveolve algumas informações como, REFERENCIA, CLICKS, BROWSER, PLATAFORMA E DATA, tem o IP mas não exibo para o usuário
 
 
@@ -52,7 +54,7 @@ continua...
 vamos ver um pouco do sistema funcionando?
 
 * CONCLUSÃO.
-Com 3 meses de *DEDICAÇÃO* e percistencia fui capaz de fazer de fazer dois sistema que resolveram meus problemas, mesmo que ja existe varios que faz a mesma coisa e muito melhor do que o meu, me senti muito realizado, pois acredito que é muito pouco tempo para estudar uma linguagem do ZERO e ainda desenvolver alguma aplicação.
+Com 3 meses de *DEDICAÇÃO* e persistência fui capaz de fazer de fazer dois sistema que resolveram meus problemas, mesmo que ja existe varios que faz a mesma coisa e muito melhor do que o meu, me senti muito realizado, pois acredito que é muito pouco tempo para estudar uma linguagem do ZERO e ainda desenvolver alguma aplicação.
 
 Então não a nada melhor que estudar muito, e depois aprimorar os conhecimentos fazendo, para quem ta começando tente sempre fazer algo que você possa usar, depois vai aprimorando de forma que outras pessas possam utilizar sua aplicação.
 
