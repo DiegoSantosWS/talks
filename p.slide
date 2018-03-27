@@ -32,10 +32,9 @@ essas são algumas das funcionalidades que tem nele.
 * Segundo sistema em Go.
 Encurtador de URL *A* *menina* *dos* *meus* *Olhos*
 
-.link http://wsib.ws:3000 Encurtador 
-
 Esse sistema é bem simples, simplemente encurta a url postada, e deveolve algumas informações como, REFERENCIA, CLICKS, BROWSER, PLATAFORMA E DATA, tem o IP mas não exibo para o usuário
 
+.link http://wsib.ws:3000 Encurtador 
 
 Agora vou mostrar um pouco do codigo.
 
