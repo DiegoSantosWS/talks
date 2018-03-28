@@ -16,9 +16,9 @@ https://facebook.com/diegosantos132
 
 .image ./images/gopher.png
 
-Eu comecei a estudar Go oficiamente em Dezembro de 2017 desde então não parei mais, me acostumei a dizer que Go é igual nicotina, vicia de uma forma incrível.
+Eu comecei a estudar Go oficiamente em Dezembro de 2017, e desde então não parei mais. Me acostumei a dizer que Go é igual a nicotina, vicia de uma forma incrível.
 
-Quando resolvi estudar a linguagem achei que teria uma grande dificuldade, pois venho do *PHP* "Sim... do PHP". Como PHP não é tipado, falei: vou sofrer.
+Quando resolvi estudar a linguagem achei que teria uma grande dificuldade, pois venho do *PHP* "Sim... do PHP". Como PHP não é tipado, falei: - "vou sofrer".
 
 Mas vamos deixar de papo e vamos ao que interassa.
 
@@ -27,9 +27,9 @@ Meu primeiro programa foi o clássico *Hello* *World*
 
 .play ./code/main.go
 
-Logo depois comecei a fazer um *Gerenciador* *de* *conteúdo* *para* *sites*.
-Sim primeiro sistema que fiz em Go foi um *Gerenciador* *de* *conteúdo* e me surpreendi comigo mesmo, pois achei que seria complicado pela falta de experiência.
-Mas ele funcionou perfeitamente.
+Logo depois, comecei a fazer um *Gerenciador* *de* *conteúdo* *para* *sites*.
+Sim! O primeiro sistema que fiz em Go foi um *Gerenciador* *de* *conteúdo* e me surpreendi comigo mesmo, porque achei que seria complicado pela falta de experiência.
+Mas ele funcionou perfeitamente!
 
 .link https://github.com/DiegoSantosWS/cms/ Codigo disponivel no github.
 
@@ -51,20 +51,20 @@ E foi muito tranquilo de usar.
 .code ./code/routers.go
 
 
-* Criei minha aplicação e agora, como deixa-la disponível na web?
+* Criei minha aplicação, e agora penso em como deixa-la disponível na web.
 
-Existe alguns servers onde é possível realizar essa ação, eu conheço dois o Amazon e o heroku esses tem suporte aplicações feitas em Go.
-Neles você não tem que ficar configurando muita coisa para sua app rodar.
+Existe alguns servers onde é possível realizar essa ação, eu conheço dois: o Amazon e o heroku, que possuem um suporte de aplicações feitas em Go.
+Neles, você não tem que ficar configurando muita coisa para sua app rodar.
 
-Agora caso você já tenha um servidor ai terá que fazer escolhas e configurações.
+Agora, caso você já tenha um servidor ai, terá que fazer escolhas e configurações.
 
 - Apache webserver, Nginx webserver ou caddy webserver
 
 * Apache webserver
 
-Para publicar o sua app no Apache terá que configrar ProxyReverse isso incluie instalçoes de libs e etc.
+Para publicar o sua app no Apache, terá que configrar ProxyReverse, isso inclui instalções de libs e etc.
 Isso por causa da porta usada pelo sistema.
-Sem usar ProxyReverse seu site estara disponivel como no exemplo abaixo
+Sem usar ProxyReverse seu site estará disponivel como no exemplo abaixo:
 Sem o proxy *http://www.deve.com.br:8181* 
 
 Referencia para configuração do apache:
@@ -80,11 +80,11 @@ Referencia para configuração do apache:
 Depois de configurado *http://www.dev.com.br/*
 
 * Nginx webserver
-O nginx e um servidor web completo e por padrão ja vem com as libs e plugins para o uso do ProxyReverse ou seja ao instalar metade do caminho ja está pronto.
-então a unica coisa a se fazer a configuração do vhost como é explicado na documentação disponivel no site.
-Grande parte das pessoas que eu perguntei qual usar e por que? todas as respostas foram a mesma.
+O nginx é um servidor web completo e por padrão já vem com as libs e plugins para o uso do ProxyReverse, ou seja, ao instalar metade do processo já estará pronto.
+Então a única coisa a se fazer, é a configuração do vhost como é explicado na documentação disponível no site.
+Grande parte das pessoas que eu perguntei qual usar e por que usar, me responderam todos da mesma forma.
 
-É possível usa-lo apenas como ProxyReverse para o apache.
+É possível usá-lo apenas como ProxyReverse para o apache.
 
 .link https://nginx.org/en/docs/ Documentação oficial
 
@@ -97,26 +97,26 @@ Grande parte das pessoas que eu perguntei qual usar e por que? todas as resposta
 
 * Deploy heroku
 
-Em fim vamos fazer o Deploy da nossa aplicação, como disse antes tenho um encurtador de url, e vou usa-lo como exemplo.
+Em fim, vamos fazer o Deploy da nossa aplicação, como disse antes, tenho um encurtador de url, e vou usá-lo como exemplo.
 
 - Primeiro passo é criar uma conta no heroku. terá um link assim: https://meuappheroku.herokuapp.com
-- Segundo criar um repositorio.
+- Segundo criar um repositório.
 
-Feito isso agora so instalar o heroku. Após a instalação estamos quase pronto para enviar nossa aplocação para o servidor.
-Um grande problema que para aplicações feita em *GO* (So testei com GO!) ele pede para instalar uma pacanda de coisas, para quem não entende muito como eu tornando bem complexo o deploy.
+Feito isso agora so instalar o heroku. Após a instalação, estamos quase pronto para enviar nossa aplocação para o servidor.
+Um grande problema nas aplicações feita em *GO* (só testei com GO), o programa pede para instalar uma diversas coisas, para quem não entende muito como eu tornando bem complexo o deploy.
 
-Porem que tem amigos tem tudo, um grande amigo me passou o X da questão para fazer deploy facilmente para heroku.
+Porém, como roga um antigo ditado, "que tem amigos tem tudo"! Um grande amigo me passou o X da questão para fazer deploy facilmente para heroku.
 
 *continua...*
 
 * Deploy heroku parte 2
 
-Com apneas dois comando será possível fazer. 
+Com apenas dois comando será possível fazer. 
 
 - dep init cria a pasta vendor add todas as dependencias do sistema.
 - dep ensure cria arquivos Gopkg.toml e Gopkg.lock contendo informações das alteraçoes feitas.
 
-Sempre que alterar é importante garantir essas alteraçoes feitas usando o dep ensure novamente (Eu fiz dessa forma)
+Sempre que alterar, é importante garantir essas alteraçoes feitas usando o dep ensure novamente. (Eu fiz dessa forma).
 
 Abra ainda na pasta do seu projeto rode um git init, git add ., heroku git:remote -a meuappheroku
 git commit -am "frist deploy to heroku" por fim git push heroku master.
@@ -129,25 +129,25 @@ e a magica vai começar a ser feita...
 O que git push heroku master faz?
 
 - Comprime os arquivos
-- Manda para diretorio que criado no heroku
+- Manda para diretório que foi criado no heroku
 - Libera informações no terminal do que está sendo feito...
 - Instala o Go e compila sua aplicação.
 
-Em um possível caso de erro ele não fará o deploy e retornará para você o erro que aconteceu ou o que está faltando.
-Caso não tenha erro seu em segundos sua aplicação estará disponível através do link *meuappheroku.herokuapp.com*
-é possível customizar um dominio proprio também porem é pago.
+Em um possível caso de erro, ele não fará o deploy e retornará para você o erro que aconteceu ou o que está faltando.
+Caso não tenha erro, em segundos sua aplicação estará disponível através do link *meuappheroku.herokuapp.com*
+É possível customizar um domínio próprio, porém é pago.
 
-Ah... tem que deixar a porta vindo da variavel de ambiente.
+Ah... tem que deixar a porta vindo da variável de ambiente.
 
 * Observação
 
 .play ./code2/porta.go
 
 * CONCLUSÃO.
-Com 3 meses de *DEDICAÇÃO* e persistência fui capaz de fazer de fazer dois sistemas, mesmo que ja existe varios que faz a mesma coisa e muito melhor do que o meu.
-Também aprendi a fazer configurações as quais sempre deixava para o SysAmin se virar.
+Com 3 meses de *DEDICAÇÃO* e persistência fui capaz de fazer de fazer dois sistemas, mesmo que já existe vários que faz a mesma coisa e muito melhor do que o meu.
+Também, aprendi a fazer configurações as quais sempre deixava para o SysAmin.
 Tudo que foi citado anteriormente eu aprendi estudando GO.
-Então não a nada melhor que estudar muito, e depois aprimorar os conhecimentos fazendo, para quem ta começando tente sempre fazer algo que você possa usar, depois vai aprimorando de forma que outras pessas possam utilizar sua aplicação.
+Então não a nada melhor que estudar muito, e depois aprimorar os conhecimentos, fazendo para quem está começando tente sempre fazer algo que você possa usar, depois vá aprimorando de forma que outras pessas possam utilizar sua aplicação.
 
 *Referencias*
 
@@ -155,10 +155,10 @@ Então não a nada melhor que estudar muito, e depois aprimorar os conhecimentos
 
 .link https://devcenter.heroku.com/categories/go Documentação heroku para Go!
 
-Por fim aprendi a usar o present para criar slides.
+Por fim, aprendi a usar o present para criar slides.
 
 * Perguntas
-Fiquem avontade...
+Fiquem à vontade...
 
 * Agradecimentos
 
