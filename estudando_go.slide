@@ -8,53 +8,150 @@ https://facebook.com/diegosantos132
 @diegofdsemana
 
 
-* Aprendendo Go.
-.image gopher.png
+* Meus estudos em Go.
 
-Eu comecei a estudar Go oficiamente em Dezembro de 2017 desde então não parei mais, me acostumei a dizer que é Go é iagual nicotina vicia de uma forma incrível.
+.image ./images/gopher.png
 
-Quando resolvi estudar a linguagem achei que teria uma dificuldade muito grande, pois venho do *PHP* "Sim... do PHP". Como PHP não é tipado falei: vou sofrer.
+Eu comecei a estudar Go oficiamente em Dezembro de 2017 desde então não parei mais, me acostumei a dizer que Go é igual nicotina, vicia de uma forma incrível.
+
+Quando resolvi estudar a linguagem achei que teria uma grande dificuldade, pois venho do *PHP* "Sim... do PHP". Como PHP não é tipado, falei: vou sofrer.
 
 Mas vamos deixar de papo e vamos ao que interassa.
 
-* Primeiro sistema em Go.
-CMS - Gerenciador de conteúdo para sites.
+* Primeiro programa em Go.
+Meu primeiro programa foi o clássico *Hello* *World*
 
-Sim primeiro sistema que fiz em Go foi um *Gerenciador* *de* *conteúdo* bom ele tem varios problemas de rotas que precisam ser resolvidos, mas foi por ele que comecei a quebra as barreiras que tinha.
+.play ./code/main.go
 
-- Gestão dos conteúdos
-- Envio de e-mail
+Logo depois comecei a fazer um *Gerenciador* *de* *conteúdo* *para* *sites*.
+Sim primeiro sistema que fiz em Go foi um *Gerenciador* *de* *conteúdo* e me surpreendi comigo mesmo, pois achei que seria complicado pela falta de experiência.
+Mas ele funcionou perfeitamente.
 
-essas são algumas das funcionalidades que tem nele.
+.link https://github.com/DiegoSantosWS/cms/ Codigo disponivel no github.
 
-.link https://github.com/DiegoSantosWS/cms/ Para mais mais informações.
-
-* Segundo sistema em Go.
+* Encurtador de url
 Encurtador de URL *A* *menina* *dos* *meus* *Olhos*
 
-Esse sistema é bem simples, simplemente encurta a url postada, e deveolve algumas informações como, REFERENCIA, CLICKS, BROWSER, PLATAFORMA E DATA, tem o IP mas não exibo para o usuário
+Esse sistema é bem simples, 
+- Encurta um url - Página inicial
+- Deveolve informações de, *REFERENCIA*, *CLICKS*, *BROWSER*, *PLATAFORMA* E *DATA*
+- Recebe *IP* "mas não é exibido para o usuário"
 
-.link http://wsib.ws:3000 Encurtador 
+.link http://shortenerurlds.herokuapp.com/ DEMO. 
 
-Agora vou mostrar um pouco do codigo teste.
+No desenvolvimento eu usei um router bem legal o Gorilla Mux.
+E foi muito tranquilo de usar.
 
-* Examplo de codigo Go.
+* Exemplo de código.
 
-.play main.go
-
-continua...
-
-* Examplo de codigo Go.
-
-.play main2.go
+.code ./code/routers.go
 
 
-vamos ver um pouco do sistema funcionando?
+* Criei minha aplicação e agora, como deixa-la disponível na web?
+
+Existe alguns servers onde é possível realizar essa ação, eu conheço dois o Amazon e o heroku esses tem suporte aplicações feitas em Go.
+Neles você não tem que ficar configurando muita coisa para sua app rodar.
+
+Agora caso você já tenha um servidor ai terá que fazer escolhas e configurações.
+
+- Apache webserver, Nginx webserver ou caddy webserver
+
+* Apache webserver
+
+Para publicar o sua app no Apache terá que configrar ProxyReverse isso incluie instalçoes de libs e etc.
+Isso por causa da porta usada pelo sistema.
+Sem usar ProxyReverse seu site estara disponivel como no exemplo abaixo
+Sem o proxy *http://www.deve.com.br:8181* 
+
+Referencia para configuração do apache:
+
+.link https://www.digitalocean.com/community/tutorials/how-to-use-apache-http-server-as-reverse-proxy-using-mod_proxy-extension Proxy Reverse Apache.
+
+.link https://httpd.apache.org/docs/2.4/howto/reverse_proxy.html Exemplo da documentação do apache
+
+* Configuração do Vhost no Apache
+
+.code ./code/config-apache.conf
+
+Depois de configurado *http://www.dev.com.br/*
+
+* Nginx webserver
+O nginx e um servidor web completo e por padrão ja vem com as libs e plugins para o uso do ProxyReverse ou seja ao instalar metade do caminho ja está pronto.
+então a unica coisa a se fazer a configuração do vhost como é explicado na documentação disponivel no site.
+Grande parte das pessoas que eu perguntei qual usar e por que? todas as respostas foram a mesma.
+
+É possível usa-lo apenas como ProxyReverse para o apache.
+
+.link https://nginx.org/en/docs/ Documentação oficial
+
+.link https://docs.nginx.com/nginx/admin-guide/web-server/reverse-proxy/ Documentação Proxy Reverse
+
+.link https://www.devmedia.com.br/usando-nginx-como-proxy-reverso-e-diminuindo-o-consumo-do-servidor/21461 Configurano somente como proxy
+
+
+#.code ./code/config.conf
+
+* Deploy heroku
+
+Em fim vamos fazer o Deploy da nossa aplicação, como disse antes tenho um encurtador de url, e vou usa-lo como exemplo.
+
+- Primeiro passo é criar uma conta no heroku. terá um link assim: https://meuappheroku.herokuapp.com
+- Segundo criar um repositorio.
+
+Feito isso agora so instalar o heroku. Após a instalação estamos quase pronto para enviar nossa aplocação para o servidor.
+Um grande problema que para aplicações feita em *GO* (So testei com GO!) ele pede para instalar uma pacanda de coisas, para quem não entende muito como eu tornando bem complexo o deploy.
+
+Porem que tem amigos tem tudo, um grande amigo me passou o X da questão para fazer deploy facilmente para heroku.
+
+*continua...*
+
+* Deploy heroku parte 2
+
+Com apneas dois comando será possível fazer. 
+
+- dep init cria a pasta vendor add todas as dependencias do sistema.
+- dep ensure cria arquivos Gopkg.toml e Gopkg.lock contendo informações das alteraçoes feitas.
+
+Sempre que alterar é importante garantir essas alteraçoes feitas usando o dep ensure novamente (Eu fiz dessa forma)
+
+Abra ainda na pasta do seu projeto rode um git init, git add ., heroku git:remote -a meuappheroku
+git commit -am "frist deploy to heroku" por fim git push heroku master.
+
+e a magica vai começar a ser feita...
+
+*Continua...*
+
+* Deploy heroku parte 3
+O que git push heroku master faz?
+
+- Comprime os arquivos
+- Manda para diretorio que criado no heroku
+- Libera informações no terminal do que está sendo feito...
+- Instala o Go e compila sua aplicação.
+
+Em um possível caso de erro ele não fará o deploy e retornará para você o erro que aconteceu ou o que está faltando.
+Caso não tenha erro seu em segundos sua aplicação estará disponível através do link *meuappheroku.herokuapp.com*
+é possível customizar um dominio proprio também porem é pago.
+
+Ah... tem que deixar a porta vindo da variavel de ambiente.
+
+* Observação
+
+.play ./code2/porta.go
 
 * CONCLUSÃO.
-Com 3 meses de *DEDICAÇÃO* e persistência fui capaz de fazer de fazer dois sistema que resolveram meus problemas, mesmo que ja existe varios que faz a mesma coisa e muito melhor do que o meu, me senti muito realizado, pois acredito que é muito pouco tempo para estudar uma linguagem do ZERO e ainda desenvolver alguma aplicação.
-
+Com 3 meses de *DEDICAÇÃO* e persistência fui capaz de fazer de fazer dois sistemas, mesmo que ja existe varios que faz a mesma coisa e muito melhor do que o meu.
+Também aprendi a fazer configurações as quais sempre deixava para o SysAmin se virar.
+Tudo que foi citado anteriormente eu aprendi estudando GO.
 Então não a nada melhor que estudar muito, e depois aprimorar os conhecimentos fazendo, para quem ta começando tente sempre fazer algo que você possa usar, depois vai aprimorando de forma que outras pessas possam utilizar sua aplicação.
+
+*Referencias*
+
+.link https://devcenter.heroku.com/ Documentação heroku
+
+.link https://devcenter.heroku.com/categories/go Documentação heroku para Go!
+
+Por aprendi a usar o present para criar slides.
 
 * Perguntas
 Fiquem avontade...
