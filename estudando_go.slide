@@ -10,7 +10,7 @@ https://facebook.com/diegosantos132
 
 * Slides
 
-.link http://shortenerurlds.herokuapp.com/Xzp Estudando Go!
+.link http://shortenerurlds.herokuapp.com/estudando_go Estudando Go!
 
 * Meus estudos em Go.
 
@@ -46,15 +46,31 @@ Esse sistema é bem simples,
 No desenvolvimento eu usei um router bem legal o Gorilla Mux.
 E foi muito tranquilo de usar.
 
-* Exemplo de código.
+* Gorilla
 
-.code ./code/routers.go
+Gorilla é um toolkit, que possui alguns pacoketes interessantes, um deles é o *MUX* usado para criar rotas e definições verbais.
+Durante o desenvolvimento do CMS eu acabei comentendo alguns erros na hora de criar as rotas.
 
+Por fim resolvi pesquisar e achei o Gorilla, depois de alguns testes resolvi usá-lo, ele facilitou muito a criação de rotas em GO.
 
-* Criei minha aplicação, e agora penso em como deixa-la disponível na web.
+No site tem mais informações sobre como usá-lo
+
+.link http://shortenerurlds.herokuapp.com/ SITE GORILLA. 
+
+Vamos ver como criar uma rota usando o pacote *mux*
+
+* Exemplo de código/rota.
+
+.code ./rotas/routers.go
+
+* Exemplo de código/func.
+
+.code ./rotas/func.go
+
+* Criei minha aplicação. E agora, como deixa-la disponível na web?
 
 Existe alguns servers onde é possível realizar essa ação, eu conheço dois: o Amazon e o heroku, que possuem um suporte de aplicações feitas em Go.
-Neles, você não tem que ficar configurando muita coisa para sua app rodar.
+Neles, você não tem que ficar configurando muita coisa para sua aplicação rodar.
 
 Agora, caso você já tenha um servidor ai, terá que fazer escolhas e configurações.
 
@@ -102,7 +118,7 @@ Em fim, vamos fazer o Deploy da nossa aplicação, como disse antes, tenho um en
 - Primeiro passo é criar uma conta no heroku. terá um link assim: https://meuappheroku.herokuapp.com
 - Segundo criar um repositório.
 
-Feito isso agora so instalar o heroku. Após a instalação, estamos quase pronto para enviar nossa aplocação para o servidor.
+Feito isso agora so instalar o heroku. Após a instalação, estamos quase pronto para enviar nossa aplicação para o servidor.
 Um grande problema nas aplicações feita em *GO* (só testei com GO), o programa pede para instalar uma diversas coisas, para quem não entende muito como eu tornando bem complexo o deploy.
 
 Porém, como roga um antigo ditado, "que tem amigos tem tudo"! Um grande amigo me passou o X da questão para fazer deploy facilmente para heroku.
@@ -113,13 +129,17 @@ Porém, como roga um antigo ditado, "que tem amigos tem tudo"! Um grande amigo m
 
 Com apenas dois comando será possível fazer. 
 
-- dep init cria a pasta vendor add todas as dependencias do sistema.
-- dep ensure cria arquivos Gopkg.toml e Gopkg.lock contendo informações das alteraçoes feitas.
+- *dep* *init* cria a pasta vendor add todas as dependencias do sistema.
+- *dep* *ensure* cria arquivos Gopkg.toml e Gopkg.lock contendo informações das alteraçoes feitas.
 
 Sempre que alterar, é importante garantir essas alteraçoes feitas usando o dep ensure novamente. (Eu fiz dessa forma).
 
-Abra ainda na pasta do seu projeto rode um git init, git add ., heroku git:remote -a meuappheroku
-git commit -am "frist deploy to heroku" por fim git push heroku master.
+Ainda na pasta do seu projeto rode um 
+
+- *git* *init*, 
+- *git* *add* *.* , 
+- *heroku* *git:remote* *-a* *meuappheroku*
+- *git* *commit* *-am* "frist deploy to heroku" por fim *git* *push* *heroku* *master*.
 
 e a magica vai começar a ser feita...
 
@@ -137,19 +157,26 @@ Em um possível caso de erro, ele não fará o deploy e retornará para você o 
 Caso não tenha erro, em segundos sua aplicação estará disponível através do link *meuappheroku.herokuapp.com*
 É possível customizar um domínio próprio, porém é pago.
 
-Ah... tem que deixar a porta vindo da variável de ambiente.
-
 * Observação
+Ah... tem que deixar a porta vindo da variável de ambiente.
 
 .play ./code2/porta.go
 
 * CONCLUSÃO.
-Com 3 meses de *DEDICAÇÃO* e persistência fui capaz de fazer de fazer dois sistemas, mesmo que já existe vários que faz a mesma coisa e muito melhor do que o meu.
+Go ao contrario do que eu pensava tem uma curva de aprendizado muito tranquila.
+
+Com *DEDICAÇÃO* e persistência fui capaz de fazer dois sistemas, mesmo que já existem vários que faz a mesma coisa e muito melhor do que o meu.
 Também, aprendi a fazer configurações as quais sempre deixava para o SysAmin.
 Tudo que foi citado anteriormente eu aprendi estudando GO.
-Então não a nada melhor que estudar muito, e depois aprimorar os conhecimentos, fazendo para quem está começando tente sempre fazer algo que você possa usar, depois vá aprimorando de forma que outras pessas possam utilizar sua aplicação.
 
-*Referencias*
+Então não a nada melhor que estudar muito, e depois aprimorar os conhecimentos, fazendo.
+
+Para quem está começando tente sempre fazer algo que você possa usar, depois vá aprimorando de forma que outras pessas possam utilizar sua aplicação.
+
+* Referências
+.link https://golang.org/ SITE GO!
+
+.link http://www.gorillatoolkit.org/ SITE GORILLA
 
 .link https://devcenter.heroku.com/ Documentação heroku
 
