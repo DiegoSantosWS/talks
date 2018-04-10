@@ -162,6 +162,20 @@ Ah... tem que deixar a porta vindo da variável de ambiente.
 
 .play ./code2/porta.go
 
+* CASO DE ERRO
+
+Erro por que não foi especificado o metadata.heroku["root-package"] no arquivo "Gopkg.toml"
+Informando um link para a documentação.
+.image ./images/heroku.png
+
+* CASO DE SUCESSO
+
+No destaque, o aviso é que não foi especificado a metadata.heroku["go-version"]
+
+Mostra um link para mais informações. 
+
+.image ./images/deploy-correct.png
+
 * CONCLUSÃO.
 Go ao contrario do que eu pensava tem uma curva de aprendizado muito tranquila.
 
