@@ -1,0 +1,7 @@
+r := mux.NewRouter()
+r.HandleFunc("/v1/", MyHome).Methods("GET")
+r.HandleFunc("/v1/produtos", ApisV1Produtos).Methods("GET")
+r.HandleFunc("/v1/produtos/{id}", ApisV1Produtos).Methods("GET")
+r.HandleFunc("/v1/produtos/", ApisV1Produtos).Methods("POST")
+r.HandleFunc("/v1/produtos/{id}", ApisV1Produtos).Methods("PUT")
+r.HandleFunc("/v1/produtos/{id}", ApisV1Produtos).Methods("DELETE")

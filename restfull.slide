@@ -1,0 +1,84 @@
+APIS RESTFUL COM GO
+Tags: foo, bar, baz, go
+
+Diego dos Santos
+Analista de sistemas, WSITEBRASIL
+diegosantosws1@gmail.com
+https://facebook.com/diegosantos132
+@diegofdsemana
+.caption _Gopher_ by [[https://www.instagram.com/reneefrench/][Renée French]]
+
+* SLIDE
+*** Os slides estão disponiveis em: 
+.link http://127.0.0.1/restfull.slide 
+
+
+* CONCEITO RESTFUL
+Represatational State Transfer (REST), em portugues Transferência de estado representacional, é uma abstração da arquitetura WWW (WORLD WIDE WEB), 
+precisamente falando, é um estilo arquitetural que consiste de um conjunto coordenado de restrições arquiteturais aplicadas a componente, conectores e elementos de dados dentro de um sistema de hipermídia distribuidos.
+
+O metodo foi definido oficialmente pela [[https://www.w3.org/][W3C]]
+*EXEMPLOS:*
+
+http://api.yourdomain.com/v1/listar/produtos LISTANDO TODOS OS PRODUTOS
+http://api.yourdomain.com/v1/listar/produtos/1 LISTANDO UM DETERMINADO PRODUTO
+
+http://api.yourdomain.com/v1/alterar/produtos/1 ALTERANDO UM DETERMINADO PRODUTO
+http://api.yourdomain.com/v1/delete/produtos/1 EXCLUINDO UM PRODUTO
+
+* EXEMPLOS
+
+http://api.yourdomain.com/v1/insert/produtos INSERINDO UM PRODUTO
+
+A quem diga que isto está errado, pois a enfase em cima dos recursos e não das operações. 
+Deveria ser assim:
+
+http://api.yourdomain.com/v1/produtos USANDO METODO *GET* (LISTADO)
+http://api.yourdomain.com/v1/produtos/1 USANDO METODO *PUT* (ALTERAR)
+http://api.yourdomain.com/v1/produtos/1 USANDO METODO *DELETE* (EXCLUIR)
+http://api.yourdomain.com/v1/produtos USANDO METODO *POST* (CADASTRAR)
+
+
+* CRIANDO UMA API
+Defininção dos VERBOS
+
+- GET usando para informar nossa api que tem que listar todos ou um unico registro
+- POST usando para informar nossa api que vamos inserir algum registro
+- DELETE acho que nome ja fala... vamos excluir algum registro
+- PUT usado para alterar os registro de nossa api
+Nossa rota vai ficar assim:
+.code rotas.go
+
+continua...
+
+* CRIANDO UMA API
+O que acabamos de fazer foi definir as rotas e os verbos que nossa api vai usar, agora vamos ver como vamos consumir e receber os dados dos produtos que estão no banco.
+
+* JWT (JSON WEB TOKEN)
+Quando criamos uma aplicação o que sempre pensamos e na segurança da mesma. JWT está ai para garantir parte dessa segurança.
+Usar JWT com GO é bem tranquilo eu ja tive que fazer uso em outras linguagens e notei um pouco de complexibilidade.
+
+Forma de usar é a qual você achar melhor, a quem goste de gerar o token e passar via cabeçalho, eu prefiro gerar o token e uma chave e deixar que minha aplicação
+trate isso para mim.
+
+* EXEMPLOS JWT 
+.code func.go
+
+* EXEMPLOS JWT
+
+.code func1.go
+* USANDO JWT COM GO
+JWT em GO é tranquilo de usar vamos ver um pouco do codigo
+
+* REFERÊNCIAS
+.link https://godoc.org/github.com/dgrijalva/jwt-go Doc jwt
+.link http://golangbr.org Doc Go
+.link http://www.gorillatoolkit.org/ Gorilla 
+.link https://github.com/DiegoSantosWS/restfulgo Repositorio
+
+//git clone git@github.com:DiegoSantosWS/restfulgo.git
+
+* ESTUDOS
+
+* PERGUNTAS
+
