@@ -76,9 +76,14 @@ JWT em GO é tranquilo de usar vamos ver um pouco do codigo
 .link http://www.gorillatoolkit.org/ Gorilla 
 .link https://github.com/DiegoSantosWS/restfulgo Repositorio
 
-//git clone git@github.com:DiegoSantosWS/restfulgo.git
 
 * ESTUDOS
 
+.link http://golangbr.org Doc Go
+Livros:
+- A linguagem de programação go
+- Go em Ação
+
+.link https://github.com/astaxie/build-web-application-with-golang/blob/master/pt-br/preface.md build-web-application-with-golang
 * PERGUNTAS
 
