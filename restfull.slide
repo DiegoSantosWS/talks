@@ -18,41 +18,56 @@ Represatational State Transfer (REST), em portugues Transferência de estado rep
 precisamente falando, é um estilo arquitetural que consiste de um conjunto coordenado de restrições arquiteturais aplicadas a componente, conectores e elementos de dados dentro de um sistema de hipermídia distribuidos.
 
 O metodo foi definido oficialmente pela [[https://www.w3.org/][W3C]]
+
+
 *EXEMPLOS:*
-
-http://api.yourdomain.com/v1/listar/produtos LISTANDO TODOS OS PRODUTOS
-http://api.yourdomain.com/v1/listar/produtos/1 LISTANDO UM DETERMINADO PRODUTO
-
-http://api.yourdomain.com/v1/alterar/produtos/1 ALTERANDO UM DETERMINADO PRODUTO
-http://api.yourdomain.com/v1/delete/produtos/1 EXCLUINDO UM PRODUTO
+http://api.yourdomain.com/v1/listar/produtos
+http://api.yourdomain.com/v1/listar/produtos/1
+http://api.yourdomain.com/v1/alterar/produtos/1
+http://api.yourdomain.com/v1/delete/produtos/1
 
 * EXEMPLOS
-
 http://api.yourdomain.com/v1/insert/produtos INSERINDO UM PRODUTO
 
-A quem diga que isto está errado, pois a enfase em cima dos recursos e não das operações. 
+A quem diga que isto está errado, pois a enfase em cima dos recursos e não das operações.
 Deveria ser assim:
-
 http://api.yourdomain.com/v1/produtos USANDO METODO *GET* (LISTADO)
 http://api.yourdomain.com/v1/produtos/1 USANDO METODO *PUT* (ALTERAR)
 http://api.yourdomain.com/v1/produtos/1 USANDO METODO *DELETE* (EXCLUIR)
 http://api.yourdomain.com/v1/produtos USANDO METODO *POST* (CADASTRAR)
 
+Por outro lado eu vejo que as duas formas estão corretas, pois teremos o resultado desejado.
 
-* CRIANDO UMA API
+* CRIANDO UMA API PARTE 1
 Defininção dos VERBOS
-
-- GET usando para informar nossa api que tem que listar todos ou um unico registro
-- POST usando para informar nossa api que vamos inserir algum registro
-- DELETE acho que nome ja fala... vamos excluir algum registro
-- PUT usado para alterar os registro de nossa api
+- *GET* usando para informar nossa api que tem que listar todos ou um unico registro
+- *POST* usando para informar nossa api que vamos inserir algum registro
+- *DELETE* acho que nome ja fala... vamos excluir algum registro
+- *PUT* usado para alterar os registro de nossa api
 Nossa rota vai ficar assim:
 .code rotas.go
 
 continua...
 
-* CRIANDO UMA API
-O que acabamos de fazer foi definir as rotas e os verbos que nossa api vai usar, agora vamos ver como vamos consumir e receber os dados dos produtos que estão no banco.
+* CRIANDO UMA API PARTE 2
+O que acabamos de fazer foi definir as rotas e os verbos que nossa api vai usar.
+Agora temos que criar a uma struct para receber os dados dos produtos.
+
+.code strutu.go
+
+.link https://github.com/DiegoSantosWS/restfulgo/blob/master/models/structis-sys.go structs 
+
+* CRIANDO UMA API PARTE 3
+Uma struct é uma coleção de campos/variaveis então as variaveis escrita dentro dela também precisa te um tipo, ao add *`json:"name"`* estou disendo
+que nome vai vim em formato json e vai receber o valor que está vindo do campo *db:"name"*.
+
+Nossa struct está criada agora vamos ver como passar as informações do banco para struct.
+
+*http://localhost:4000/v1/products* Acesso 
+.link https://github.com/DiegoSantosWS/restfulgo/blob/master/models/v1.go#L48 LISTA TODOS PRODUTOS
+
+*http://localhost:4000/v1/products/1* Acesso 
+.link https://github.com/DiegoSantosWS/restfulgo/blob/master/models/v1.go#L48 LISTA PRODUTOS POR ID
 
 * JWT (JSON WEB TOKEN)
 Quando criamos uma aplicação o que sempre pensamos e na segurança da mesma. JWT está ai para garantir parte dessa segurança.
@@ -61,12 +76,20 @@ Usar JWT com GO é bem tranquilo eu ja tive que fazer uso em outras linguagens e
 Forma de usar é a qual você achar melhor, a quem goste de gerar o token e passar via cabeçalho, eu prefiro gerar o token e uma chave e deixar que minha aplicação
 trate isso para mim.
 
+* SEGURANÇA
+
 * EXEMPLOS JWT 
 .code func.go
 
-* EXEMPLOS JWT
+* EXPLICAÇÃO
+Quando o projeto fo executado ele vai ler a chave secreta que está no arquivo secret.str, converte ela em byte e passa para função
+_generateToken(key)_ essa função retorna uma string com o token _JWT_
 
+Em seguida eu faço Parse do token retornado, e verifico. o retorno que tenho é um _bool_ por fim so fazer uma condição se true executa.
+
+* EXEMPLOS JWT
 .code func1.go
+
 * USANDO JWT COM GO
 JWT em GO é tranquilo de usar vamos ver um pouco do codigo
 

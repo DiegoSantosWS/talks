@@ -16,7 +16,6 @@ func main() {
 		return
 	}
 	key = []byte(key)
-	fmt.Printf("chave do tipo %s\n", key)
 	tokenstring := generateToke(key)
 	token, _ := jwt.Parse(tokenstring, func(token *jwt.Token) (interface{}, error) {
 		return []byte(key), nil
